@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real-time Data Display with Graphs</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+  }
+  h1 {
+    color: #333;
+  }
+  .data {
+    margin-top: 20px;
+  }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container">
+  <h1>Real-time Data Display with Graphs</h1>
+  <canvas id="distanceChart" width="400" height="200"></canvas>
+  <canvas id="accelerationChart" width="400" height="200"></canvas>
+  <canvas id="gyrationChart" width="400" height="200"></canvas>
+  <div class="data">
+    <p>Distance: <span id="distance">--</span> mm</p>
+    <p>Acceleration (X, Y, Z): <span id="acceleration">--, --, --</span> m/s<sup>2</sup></p>
+    <p>Gyration (X, Y, Z): <span id="gyration">--, --, --</span> rad/s</p>
+    <p>RSSI: <span id="rssi">--</span></p>
+    <p>Last Update: <span id="timestamp">--</span></p>
+  </div>
+</div>
+
+<script>
+  var distanceChartCtx = document.getElementById('distanceChart').getContext('2d');
+  var distanceChart = new Chart(distanceChartCtx, {
+    type: 'line',
+    data: {
+      labels: [],
+      datasets: [{
+        label: 'Distance (mm)',
+        data: [],
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1,
+        fill: false
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+
+  var accelerationChartCtx = document.getElementById('accelerationChart').getContext('2d');
+  var accelerationChart = new Chart(accelerationChartCtx, {
+    type: 'line',
+    data: {
+      labels: [],
+      datasets: [{
+        label: 'Acceleration X (m/s^2)',
+        data: [],
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1,
+        fill: false
+      },
+      {
+        label: 'Acceleration Y (m/s^2)',
+        data: [],
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1,
+        fill: false
+      },
+      {
+        label: 'Acceleration Z (m/s^2)',
+        data: [],
+        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+        borderColor: 'rgba(255, 206, 86, 1)',
+        borderWidth: 1,
+        fill: false
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+
+  var gyrationChartCtx = document.getElementById('gyrationChart').getContext('2d');
+  var gyrationChart = new Chart(gyrationChartCtx, {
+    type: 'line',
+    data: {
+      labels: [],
+      datasets: [{
+        label: 'Gyration X (rad/s)',
+        data: [],
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1,
+        fill: false
+      },
+      {
+        label: 'Gyration Y (rad/s)',
+        data: [],
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1,
+        fill: false
+      },
+      {
+        label: 'Gyration Z (rad/s)',
+        data: [],
+        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+        borderColor: 'rgba(255, 206, 86, 1)',
+        borderWidth: 1,
+        fill: false
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+
+  function fetchData() {
+    fetch('/data')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('distance').textContent = data.distance_mm;
+      document.getElementById('acceleration').textContent = data.acceleration;
+      document.getElementById('gyration').textContent = data.gyration;
+      document.getElementById('rssi').textContent = data.rssi;
+      document.getElementById('timestamp').textContent = data.timestamp;
+
+      // Add new data points to the charts
+      distanceChart.data.labels.push(data.timestamp);
+      distanceChart.data.datasets[0].data.push(data.distance_mm);
+      distanceChart.update();
+
+      var accelerationData = data.acceleration.split(',');
+      accelerationChart.data.labels.push(data.timestamp);
+      accelerationChart.data.datasets[0].data.push(accelerationData[0]);
+      accelerationChart.data.datasets[1].data.push(accelerationData[1]);
+      accelerationChart.data.datasets[2].data.push(accelerationData[2]);
+      accelerationChart.update();
+
+      var gyrationData = data.gyration.split(',');
+      gyrationChart.data.labels.push(data.timestamp);
+      gyrationChart.data.datasets[0].data.push(gyrationData[0]);
+      gyrationChart.data.datasets[1].data.push(gyrationData[1]);
+      gyrationChart.data.datasets[2].data.push(gyrationData[2]);
+      gyrationChart.update();
+    })
+    .catch(error => console.error('Error fetching data:', error));
+  }
+
+  // Fetch data initially and set up periodic fetching
+  fetchData();
+  setInterval(fetchData, 100); // Fetch data every 1 seconds
+</script>
+</body>
+</html>
+
