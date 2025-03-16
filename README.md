@@ -1,14 +1,7 @@
-# 🚀 LoRa-Based ESP32 TTGO LoRa T3 V1.6 Transceiver with OLED & Web Server  
+# 🚀   
 
 ## Overview:
 The Soft Landing Mechanism is designed to ensure a controlled and safe landing for aerial or space vehicles. The system detects descent, analyzes stability, and activates thrusters/motors to reduce impact force, preventing damage to the vehicle and payload.
-
-## 📌 Features  
-- 🔍 Sensor Data Acquisition  
-- 🧠 Smart Decision-Making 
-- ⚡ Motor Activation via Relay  
-- 📡 Wireless Communication  
--  🛬 Smooth Landing & System Reset
 
 ## 🛠️ Hardware Requirements  
 - LilyGO TTGO T3 LoRa32 433MHz V1.1.6 ESP32 with a built-in LoRa chip and an OLED display (128x64 pixels)
@@ -83,6 +76,41 @@ The Soft Landing Mechanism is designed to ensure a controlled and safe landing f
    ```cpp
    const char* ssid = "YourWiFiSSID";
    const char* password = "YourWiFiPassword";
+
+5. ## 🖥️ Web Dashboard 
+- The receiver ESP32 hosts a **Web Server**.
+- View live **altitude, acceleration, and LoRa signal strength** in JSON format.
+- Find the ESP32's IP address (printed in Serial Monitor).
+- Open a web browser and enter the ESP32's IP address to view live data.
+- Alternatively, open the index.html file directly in a browser.
+- **Note: Remember that index.html file should be in folder of receiver code*. 
+
+---
+
+## 🛠 Applications
+✅ **Drones & UAVs** – Ensures safe landing for emergency landings.  
+✅ **Space Missions** – Assists in controlled payload landings.  
+✅ **Aerial Delivery Systems** – Protects cargo during descent.  
+
+---
+
+## 📌 Future Enhancements
+🔹 **PID Control for More Precise Landing**  
+🔹 **Integration with GPS for Outdoor Landings**  
+🔹 **Real-time Cloud Data Logging**  
+
+---
+
+## 📜 License
+This project is **open-source** and licensed under the **MIT License**.
+
+---
+
+## 🤝 Contributing
+Pull requests are welcome! For major changes, please open an issue first to discuss.
+
+👨‍💻 Developed by **Nidhee Vishwanath Salvi**  
+🌟 Star this repository if you found it useful!
 
 
 
