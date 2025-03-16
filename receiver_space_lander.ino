@@ -36,8 +36,8 @@
 #define SCREEN_HEIGHT 64
 
 // Replace with your network credentials
-const char* ssid     = "Aaa";
-const char* password = "123456789000";
+const char* ssid     = "AAAAAA";
+const char* password = "000000";
 
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP);
