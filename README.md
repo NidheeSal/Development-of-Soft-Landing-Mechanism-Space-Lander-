@@ -26,7 +26,7 @@ This project implements a LoRa-based wireless data receiver using the ESP32 TTGO
 ![Alt text](https://www.tinytronics.nl/image/cache/catalog/products_2022/LilyGO-TTGO-T3-LoRa32-433MHz-V2.1.6-ESP32-pinout-600x600w.jpg)
 
 ## Circuit Diagram
-
+![Alt text](https://raw.githubusercontent.com/your-username/repo-name/main/image.png)
 
 ## ⚙️ Installation & Setup  
 1. **Install Required Libraries:**
