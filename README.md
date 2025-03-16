@@ -16,23 +16,9 @@ This project implements a LoRa-based wireless data receiver using the ESP32 TTGO
 - SSD1306 OLED Display (128x64 pixels)
 - Wi-Fi Connection  
 
-## 🔌 Wiring Connections  
-### LoRa Module (SX1278)  
-| **ESP32 Pin** | **LoRa Pin** |  
-|--------------|------------|  
-| 5  | SCK  |  
-| 19 | MISO |  
-| 27 | MOSI |  
-| 18 | NSS  |  
-| 14 | RST  |  
-| 26 | DIO0 |  
+## 🔌  Connections  
+![Alt text](https://www.tinytronics.nl/image/cache/catalog/products_2022/LilyGO-TTGO-T3-LoRa32-433MHz-V2.1.6-ESP32-pinout-600x600w.jpg)
 
-### OLED Display (SSD1306)  
-| **ESP32 Pin** | **OLED Pin** |  
-|--------------|------------|  
-| 21 | SDA  |  
-| 22 | SCL  |  
-| 23 | RST  |  
 
 ## ⚙️ Installation & Setup  
 1. **Install Required Libraries:**  
