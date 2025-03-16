@@ -1,19 +1,20 @@
-# 🚀 LoRa-Based ESP32 Receiver with OLED & Web Server  
+# 🚀 LoRa-Based ESP32 TTGO LoRa T3 V1.6 Transceiver with OLED & Web Server  
 
-This project is a **LoRa receiver using ESP32** that displays sensor data on an **OLED screen** and serves data via a **Wi-Fi web server**.
+## Overview:
+This project implements a LoRa-based wireless data receiver using the ESP32 TTGO LoRa T3 V1.6 module. It receives sensor data over LoRa, displays it on an **OLED screen**, and hosts a **web-based dashboard** where users can monitor real-time data using a web browser.
 
 ## 📌 Features  
-- 📡 **LoRa Communication** – Receives real-time sensor data via SX1278 LoRa module.  
+- 📡 **Reception** - Receives sensor data from a remote LoRa transmitter.  
 - 🖥️ **OLED Display (SSD1306)** – Displays received data.  
 - 🌐 **Wi-Fi Web Server** – Access data remotely.  
 - ⏳ **NTP Time Sync** – Fetches timestamps for received packets.  
 - 📊 **JSON API Endpoint** – Exposes sensor data in JSON format.  
 
 ## 🛠️ Hardware Requirements  
-- **ESP32** Development Board  
-- **SX1278 LoRa Module (433 MHz)**  
-- **SSD1306 OLED Display (128x64)**  
-- **Wi-Fi Connection**  
+- ESP32 TTGO LoRa v1.6
+- SX1278 LoRa Module (433 MHz)
+- SSD1306 OLED Display (128x64 pixels)
+- Wi-Fi Connection  
 
 ## 🔌 Wiring Connections  
 ### LoRa Module (SX1278)  
