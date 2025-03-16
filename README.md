@@ -28,6 +28,20 @@ This project implements a LoRa-based wireless data receiver using the ESP32 TTGO
 ## Circuit Diagram
 ![Alt text](circuit_diagram.png)
 
+## 📡 How It Works
+1.**Sensor Data Acquisition**: - MPU6050 detects orientation and movement.
+                               - VL53L0X measures the altitude.
+                               - ESP32 reads the sensor data via I2C.
+2.**Processing & Decision Making**: - If altitude (LiDAR) is above threshold → motors remain off.
+                                    - If descent is detected (altitude decreasing rapidly) → MPU6050 checks for stability.
+                                    - If a critical height is reached (e.g., 100m above the ground), ESP32 decides to activate the thrusters/motors.
+3.**Motor Activation via Relay**: - ESP32 sends a signal to the relay module.
+                                  - Relay module switches ON the motors (e.g., opening thrusters).
+4.**Communication via LoRa**: - ESP32 transmit landing status via LoRa.
+                              - A Web Server continuosly receive altitude/motion and orientation real time data with graphs.
+5.**Landing Completion:**: - Once altitude reaches 0, ESP32 turns off motors.
+                           - Landed Successfully
+
 ## ⚙️ Installation & Setup  
 1. **Install Required Libraries:**
    *Transmmiter*
