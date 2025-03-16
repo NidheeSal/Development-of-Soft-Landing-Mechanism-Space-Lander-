@@ -1,14 +1,14 @@
 # 🚀 LoRa-Based ESP32 TTGO LoRa T3 V1.6 Transceiver with OLED & Web Server  
 
 ## Overview:
-This project implements a LoRa-based wireless data receiver using the ESP32 TTGO LoRa T3 V1.6 module. It receives sensor data over LoRa, displays it on an **OLED screen**, and hosts a **web-based dashboard** where users can monitor real-time data using a web browser.
+The Soft Landing Mechanism is designed to ensure a controlled and safe landing for aerial or space vehicles. The system detects descent, analyzes stability, and activates thrusters/motors to reduce impact force, preventing damage to the vehicle and payload.
 
 ## 📌 Features  
-- 📡 **Reception** - Receives sensor data from a remote LoRa transmitter.  
-- 🖥️ **OLED Display (SSD1306)** – Displays received data.  
-- 🌐 **Wi-Fi Web Server** – Access data remotely.  
-- ⏳ **NTP Time Sync** – Fetches timestamps for received packets.  
-- 📊 **JSON API Endpoint** – Exposes sensor data in JSON format.  
+- 🔍 Sensor Data Acquisition  
+- 🧠 Smart Decision-Making 
+- ⚡ Motor Activation via Relay  
+- 📡 Wireless Communication  
+-  🛬 Smooth Landing & System Reset
 
 ## 🛠️ Hardware Requirements  
 - LilyGO TTGO T3 LoRa32 433MHz V1.1.6 ESP32 with a built-in LoRa chip and an OLED display (128x64 pixels)
@@ -25,7 +25,7 @@ This project implements a LoRa-based wireless data receiver using the ESP32 TTGO
 ## 🔌  LORA ESP32 TTGO LoRa T3 V1.6 Pin Diagram
 ![Alt text](https://www.tinytronics.nl/image/cache/catalog/products_2022/LilyGO-TTGO-T3-LoRa32-433MHz-V2.1.6-ESP32-pinout-600x600w.jpg)
 
-## Circuit Diagram
+## 🔧 Circuit Diagram
 ![Alt text](circuit_diagram.png)
 
 ## 📡 How It Works
@@ -76,20 +76,13 @@ This project implements a LoRa-based wireless data receiver using the ESP32 TTGO
    - NTPClient
    - WiFiUdp 
    - ArduinoJson
-  
-   
-  
 
-3. **Update Wi-Fi Credentials in the Code:**  
+2. **Upload the Code to LoRa Module**
+   
+4. **Update Wi-Fi Credentials in the Receiver Code:**  
    ```cpp
    const char* ssid = "YourWiFiSSID";
    const char* password = "YourWiFiPassword";
 
-4. **Upload the Code to ESP32 using Arduino IDE**
-## 📡 How It Works
-1.**The LoRa receiver listens for packets from a LoRa transmitter.**
-2.**Extracts distance (mm), acceleration (m/s²), and gyration (rad/s).**
-3.**Displays the data on an OLED screen.**
-4.**Connects to Wi-Fi and starts a web server.**
-5.**Provides real-time JSON data via an API endpoint.**
+
 
