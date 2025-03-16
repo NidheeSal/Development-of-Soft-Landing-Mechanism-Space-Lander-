@@ -50,3 +50,11 @@ This project is a **LoRa receiver using ESP32** that displays sensor data on an 
    const char* ssid = "YourWiFiSSID";
    const char* password = "YourWiFiPassword";
 
+3. **Upload the Code to ESP32 using Arduino IDE**
+## 📡 How It Works
+1.**The LoRa receiver listens for packets from a LoRa transmitter.**
+2.**Extracts distance (mm), acceleration (m/s²), and gyration (rad/s).**
+3.**Displays the data on an OLED screen.**
+4.**Connects to Wi-Fi and starts a web server.**
+5.**Provides real-time JSON data via an API endpoint.**
+
