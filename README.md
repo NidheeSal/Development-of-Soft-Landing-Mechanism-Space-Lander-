@@ -1,4 +1,4 @@
-# 🚀   
+# 🚀 Soft Landing Mechanism using LoRa32
 
 ## Overview:
 The Soft Landing Mechanism is designed to ensure a controlled and safe landing for aerial or space vehicles. The system detects descent, analyzes stability, and activates thrusters/motors to reduce impact force, preventing damage to the vehicle and payload.
@@ -83,7 +83,7 @@ The Soft Landing Mechanism is designed to ensure a controlled and safe landing f
 - Find the ESP32's IP address (printed in Serial Monitor).
 - Open a web browser and enter the ESP32's IP address to view live data.
 - Alternatively, open the index.html file directly in a browser.
-- **Note: Remember that index.html file should be in folder of receiver code*. 
+- *Note: Remember that index.html file should be in folder of receiver code*. 
 
 ---
 
