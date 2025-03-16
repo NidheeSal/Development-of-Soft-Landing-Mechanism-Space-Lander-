@@ -11,33 +11,58 @@ This project implements a LoRa-based wireless data receiver using the ESP32 TTGO
 - 📊 **JSON API Endpoint** – Exposes sensor data in JSON format.  
 
 ## 🛠️ Hardware Requirements  
-- ESP32 TTGO LoRa v1.6
-- SX1278 LoRa Module (433 MHz)
-- SSD1306 OLED Display (128x64 pixels)
-- Wi-Fi Connection  
+- LilyGO TTGO T3 LoRa32 433MHz V1.1.6 ESP32 with a built-in LoRa chip and an OLED display (128x64 pixels)
+- 2 Pole 5V Single Channel Relay Module
+- I2C Logic Level Converter 4 Channel Bi-directional Module
+- Gyroscope Sensor MPU6050 
+- VL53L0X TOF Based Lidar Lasar Distance Sensor
+- 3.7V 6000 RPM Mini Drone DC Motor Shaft 
+- Wi-Fi Connection
 
-## 🔌  Connections  
+## 🛠️ Software Requirements
+- Arduino IDE 
+  
+## 🔌  LORA ESP32 TTGO LoRa T3 V1.6 Pin Diagram
 ![Alt text](https://www.tinytronics.nl/image/cache/catalog/products_2022/LilyGO-TTGO-T3-LoRa32-433MHz-V2.1.6-ESP32-pinout-600x600w.jpg)
+
+## Circuit Diagram
 
 
 ## ⚙️ Installation & Setup  
-1. **Install Required Libraries:**  
+1. **Install Required Libraries:**
+   *Transmmiter*
+   - VL53L0X
+   - ESP32_Servo
+   - Adafruit_MPU6050
+   - Adafruit_Sensor
+   - Wire
+   - SPI
+   - LoRa
+   - Adafruit GFX
+   - Adafruit SSD1306
+ 
+   *Receiver* 
    - WiFi  
    - ESPAsyncWebServer  
+   - SPI
    - SPIFFS  
    - LoRa  
    - Wire  
    - Adafruit GFX  
    - Adafruit SSD1306  
-   - NTPClient  
-   - ArduinoJson  
+   - NTPClient
+   - WiFiUdp 
+   - ArduinoJson
+  
+   
+  
 
-2. **Update Wi-Fi Credentials in the Code:**  
+3. **Update Wi-Fi Credentials in the Code:**  
    ```cpp
    const char* ssid = "YourWiFiSSID";
    const char* password = "YourWiFiPassword";
 
-3. **Upload the Code to ESP32 using Arduino IDE**
+4. **Upload the Code to ESP32 using Arduino IDE**
 ## 📡 How It Works
 1.**The LoRa receiver listens for packets from a LoRa transmitter.**
 2.**Extracts distance (mm), acceleration (m/s²), and gyration (rad/s).**
